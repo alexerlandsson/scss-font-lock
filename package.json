@@ -1,0 +1,31 @@
+{
+  "name": "css-font-lock",
+  "version": "1.0.0",
+  "description": "SCSS mixin used to create CSS locks for responsive typography",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexerlandsson/css-font-lock.git"
+  },
+  "keywords": [
+    "SCSS",
+    "mixin",
+    "CSS",
+    "lock"
+  ],
+  "author": "Alexander Erlandsson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexerlandsson/css-font-lock/issues"
+  },
+  "homepage": "https://github.com/alexerlandsson/css-font-lock#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2"
+  }
+}
