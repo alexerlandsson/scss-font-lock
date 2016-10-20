@@ -12,16 +12,16 @@ var gulp 		= require('gulp'),
 
 // Watch
 gulp.task('watch', function() {
-    gulp.watch('./scss/css-font-lock.scss', ['sass']);
+    gulp.watch('./**/*.scss', ['sass']);
  });
 
 // Sass
 gulp.task('sass', function () {
-	gulp.src('./scss/css-font-lock.scss')
+	gulp.src('./demo/demo.scss')
 		.pipe(sass())
 		.pipe(rename({suffix: '.min'}))
 		.pipe(minifycss())
-		.pipe(gulp.dest('./css'));
+		.pipe(gulp.dest('./demo'));
  });
 
  // Default

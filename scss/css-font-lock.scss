@@ -1,6 +1,7 @@
 /*
  * CSS Font Lock by @alexerlandsson
  * This is a scss mixin used to create CSS locks for responsive typography.
+ * The mixin takes px and rem as acceptable units
  *
  * For better documentation and implementation guide, check out the GitHub repository:
  * https://github.com/alexerlandsson/css-font-lock
@@ -14,42 +15,26 @@
 
 	$error: false;
 
-	/* Control $max-size */
-	@if (unit($max-size) != px) and (unit($min-size) != rem) {
-		@warn "`#{$max-size}` needs to be set in px or rem.";
-		$error: true;
-	} @else if (unit($max-size) == rem) {
-		/* Set max-size in px if set as rem */
-		$max-size: (cfl-strip-unit($max-size) * $base-font-size);
+	/* Add variables to a map */
+	$var-list: (min-size: $min-size, max-size: $max-size, min-width: $min-width, max-width: $max-width);
+
+	/* Control unit of passed variables */
+	@each $key, $val in $var-list {
+		@if (unit($val) != px) and (unit($val) != rem) {
+			@warn "`#{$key}` needs to be set in px or rem.";
+			$error: true;
+		} @else if (unit($val) == rem) {
+			/* Set max-size in px if set in rem */
+			$val: (cfl-strip-unit($val) * $base-font-size);
+			$var-list: map-merge($var-list, ($key: $val));
+		}
 	}
 
-	/* Control $min-size */
-	@if (unit($min-size) != px) and (unit($min-size) != rem) {
-		@warn "`#{$min-size}` needs to be set in px or rem.";
-		@debug #{$min-size};
-		$error: true;
-	} @else if (unit($min-size) == rem) {
-		/* Set max-size in px if set as rem */
-		$min-size: (cfl-strip-unit($min-size) * $base-font-size);
-	}
-
-	/* Control $min-width */
-	@if (unit($min-width) != px) and (unit($min-width) != rem) {
-		@warn "`#{$min-width}` needs to be set in px or rem.";
-		$error: true;
-	} @else if (unit($min-width) == rem) {
-		/* Set max-size in px if set as rem */
-		$min-width: (cfl-strip-unit($min-width) * $base-font-size);
-	}
-
-	/* Control $max-width */
-	@if (unit($max-width) != px) and (unit($max-width) != rem) {
-		@warn "`#{$max-width}` needs to be set in px or rem.";
-		$error: true;
-	} @else if (unit($max-width) == rem) {
-		/* Set max-size in px if set as rem */
-		$max-width: (cfl-strip-unit($max-width) * $base-font-size);
-	}
+	/* Set the new values to the variables */
+	$min-size: map-get($var-list, min-size);
+	$max-size: map-get($var-list, max-size);
+	$min-width: map-get($var-list, min-width);
+	$max-width: map-get($var-list, max-width);
 
 	@if ( $error == false ) {
 		font-size: $min-size;
