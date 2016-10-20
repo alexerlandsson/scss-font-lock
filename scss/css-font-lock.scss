@@ -1,7 +1,7 @@
 /*
  * CSS Font Lock by @alexerlandsson
  * This is a scss mixin used to create CSS locks for responsive typography.
- * The mixin takes px and rem as acceptable units
+ * The mixin takes px and em as acceptable units
  *
  * For better documentation and implementation guide, check out the GitHub repository:
  * https://github.com/alexerlandsson/css-font-lock
@@ -20,11 +20,11 @@
 
 	/* Control unit of passed variables */
 	@each $key, $val in $var-list {
-		@if (unit($val) != px) and (unit($val) != rem) {
-			@warn "`#{$key}` needs to be set in px or rem.";
+		@if (unit($val) != px) and (unit($val) != em) {
+			@warn "`#{$key}` needs to be set in px or em.";
 			$error: true;
-		} @else if (unit($val) == rem) {
-			/* Set max-size in px if set in rem */
+		} @else if (unit($val) == em) {
+			/* Set max-size in px if set in em */
 			$val: (cfl-strip-unit($val) * $base-font-size);
 			$var-list: map-merge($var-list, ($key: $val));
 		}

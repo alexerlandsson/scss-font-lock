@@ -23,5 +23,5 @@ body {
 
 .text {
 	/* This is how to use css-font-lock() */
-	@include css-font-lock(1.5rem, 60px, 375px, 1024px);
+	@include css-font-lock(24px, 60px, 375px, 1024px);
 }
