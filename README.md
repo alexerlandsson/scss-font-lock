@@ -1,5 +1,5 @@
 # CSS Font Lock
-This is a scss mixin used to create CSS locks for responsive typography.
+This is a scss mixin used to create CSS locks for responsive typography. To make in convenient to use it allows you to use both px and em as units and if anything goes wrong, it will let you know during the compile using scss @warn and also print an error message on top of the text in the application or website.
 
 **Demo: [https://alexerlandsson.com/github/css-font-lock/](https://alexerlandsson.com/github/css-font-lock/)**
 
@@ -7,7 +7,7 @@ This is a scss mixin used to create CSS locks for responsive typography.
 A CSS lock is a technique used to smooth change the font size depending on viewport width between to breakpoints.
 
 ## How to use?
-Include the mixin in your scss file as follows:
+Add the mixin in your scss file and use `@include` to include it to where you want it to be used.
 
 ```scss
 @include css-font-lock($min-size, $max-size, $min-width, $max-width);
@@ -19,6 +19,13 @@ Change the variables to desired values in either `px` or `em`. Please not that t
 @include css-font-lock($min-size, $max-size, $min-width, $max-width, 14px);
 ```
 
+### Example
+This example demonstrate a CSS lock where the font size will be 16px up to a vieport width of 375px and then scale up to 60px which locks at 1024px:
+
+```scss
+@include css-font-lock(16px, 60px, 375px, 1024px);
+```
+
 ## Variables
 Variable 			| Description
 --------------------| ----------------------------
@@ -27,6 +34,9 @@ $max-size			| Font maximum size. Will be displayed on viewport larger than $max-
 $min-width			| Breakpoint where the font reaches its minimal font size.
 $max-width			| Breakpoint where the font reaches its maximum font size.
 $base-font-size		| **Optional.** Base font size used to calculate values set in `em`. Default 16px if not passed into the mixin.
+
+## Error handling
+This mixin is built to handle errors. If variables are set it non-compatible units, it will let you know when you compile into css using scss @warn. Another feature is that the mixin will ignore an output on error and instead display an error message on top of the text.
 
 ## Browser Compatibility
 ![Chrome](https://github.com/alrra/browser-logos/blob/master/chrome/chrome_64x64.png?raw=true) | ![Safari](https://github.com/alrra/browser-logos/blob/master/safari/safari_64x64.png?raw=true) | ![Firefox](https://github.com/alrra/browser-logos/blob/master/firefox/firefox_64x64.png?raw=true) | ![Opera](https://github.com/alrra/browser-logos/blob/master/opera/opera_64x64.png?raw=true) | ![IE](https://github.com/alrra/browser-logos/blob/master/internet-explorer/internet-explorer_64x64.png?raw=true)
