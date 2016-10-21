@@ -1,7 +1,7 @@
-# CSS Font Lock
+# SCSS Font Lock
 This is a scss mixin used to create CSS locks for responsive typography. To make in convenient to use it allows you to use both px and em as units and if anything goes wrong, it will let you know during the compile using scss @warn and also print an error message on top of the text in the application or website.
 
-**Demo: [https://alexerlandsson.com/github/css-font-lock/](https://alexerlandsson.com/github/css-font-lock/)**
+**Demo: [https://alexerlandsson.com/github/scss-font-lock/](https://alexerlandsson.com/github/scss-font-lock/)**
 
 ## What is a CSS lock?
 A CSS lock is a technique used to smooth change the font size depending on viewport width between to breakpoints.
@@ -10,20 +10,20 @@ A CSS lock is a technique used to smooth change the font size depending on viewp
 Add the mixin in your scss file and use `@include` to include it to where you want it to be used.
 
 ```scss
-@include css-font-lock($min-size, $max-size, $min-width, $max-width);
+@include scss-font-lock($min-size, $max-size, $min-width, $max-width);
 ```
 
 Change the variables to desired values in either `px` or `em`. Please not that the output will be presented in px. The mixin contains a calculation of em to px with the default font-size of 16px. However, you can change that base value by include another variable in the mixin with the new value. Example:
 
 ```scss
-@include css-font-lock($min-size, $max-size, $min-width, $max-width, 14px);
+@include scss-font-lock($min-size, $max-size, $min-width, $max-width, 14px);
 ```
 
 ### Example
 This example demonstrate a CSS lock where the font size will be 16px up to a vieport width of 375px and then scale up to 60px which locks at 1024px:
 
 ```scss
-@include css-font-lock(16px, 60px, 375px, 1024px);
+@include scss-font-lock(16px, 60px, 375px, 1024px);
 ```
 
 ## Variables

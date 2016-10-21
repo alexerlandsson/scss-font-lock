@@ -1,4 +1,4 @@
-@import "../scss/css-font-lock";
+@import "../scss/scss-font-lock";
 
 html,
 body {
@@ -23,5 +23,5 @@ body {
 
 .text {
 	/* This is how to use css-font-lock() */
-	@include css-font-lock(24px, 60px, 375px, 1024px);
+	@include scss-font-lock(24px, 60px, 375px, 1024px);
 }
