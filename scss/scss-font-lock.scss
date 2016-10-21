@@ -46,10 +46,10 @@
 			font-size: $max-size;
 		}
 	} @else {
-		@warn "There is an error in `@include font-size-lock();`";
+		@warn "There is an error in `@include scss-font-lock();`";
 		/* Print error message on page */
 		&:before {
-			content: "There is an error in @include css-lock();";
+			content: "There is an error in @include scss-font-lock();";
 			position: absolute;
 			padding: 10px 15px;
 			white-space: nowrap;
