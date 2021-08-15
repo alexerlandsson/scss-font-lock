@@ -12,7 +12,6 @@
 }
 
 @mixin scss-font-lock($min-size, $max-size, $min-width, $max-width, $base-font-size: 16px) {
-
 	$error: false;
 
 	/* Add variables to a map */
@@ -39,29 +38,13 @@
 	@if ( $error == false ) {
 		font-size: $min-size;
 		@media (min-width: $min-width) and (max-width: $max-width) {
-			$size-increase: (sfl-strip-unit($max-size) - sfl-strip-unit($min-size));
-			font-size: calc( #{$min-size} + #{$size-increase} * (100vw - #{$min-width}) / (#{sfl-strip-unit($max-width)} - #{sfl-strip-unit($min-width)}) );
+			$size-increase: sfl-strip-unit($max-size) - sfl-strip-unit($min-size);
+			font-size: calc(#{$min-size} + #{$size-increase} * (100vw - #{$min-width}) / (#{sfl-strip-unit($max-width)} - #{sfl-strip-unit($min-width)}));
 		}
 		@media (min-width: ($max-width + 1px)) {
 			font-size: $max-size;
 		}
 	} @else {
 		@warn "There is an error in `@include scss-font-lock();`";
-		/* Print error message on page */
-		&:before {
-			content: "There is an error in @include scss-font-lock();";
-			position: absolute;
-			padding: 10px 15px;
-			white-space: nowrap;
-			background-color: red;
-			border-radius: 10px;
-			color: white;
-			top: 50%;
-			left: 50%;
-			-webkit-transform: translate(-50%, -50%);
-			   -moz-transform: translate(-50%, -50%);
-					transform: translate(-50%, -50%);
-		}
 	}
-
 }

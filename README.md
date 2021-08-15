@@ -1,7 +1,7 @@
 # SCSS Font Lock
-This is a SCSS mixin used to create CSS locks for responsive typography. To make in convenient to use it allows you to use both px and em as units and if anything goes wrong, it will let you know during the compile using scss @warn and also print an error message on top of the text in the application or website.
+This is a SCSS mixin used to create CSS locks for responsive typography. To make in convenient to use it allows you to use both px and em as units and if anything goes wrong, it will let you know during the compile using scss @warn.
 
-**Demo: [https://alexerlandsson.com/github/scss-font-lock/](https://alexerlandsson.com/github/scss-font-lock/)**
+**Demo: [https://alexerlandsson.github.io/scss-font-lock/demo/demo.html](https://alexerlandsson.github.io/scss-font-lock/demo/demo.html)**
 
 ## What is a CSS lock?
 A CSS lock is a technique used to smooth change the font size depending on viewport width between to breakpoints.

@@ -6,22 +6,24 @@ body {
 }
 
 body {
+	display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
 	margin: 0;
-	background: linear-gradient(45deg, #757F9A, #D7DDE8);
+	background-image: linear-gradient(45deg, #757F9A, #D7DDE8);
 	color: #333333;
-}
-
-.center {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	   -moz-transform: translate(-50%, -50%);
-			transform: translate(-50%, -50%);
-	text-align: center;
+	font-family: 'sans-serif';
 }
 
 .text {
 	/* This is how to use css-font-lock() */
 	@include scss-font-lock(24px, 60px, 375px, 1024px);
+	max-width: 80%;
+	text-align: center;
 }
