@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/alexerlandsson/css-font-lock#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-minify-css": "^1.2.4",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^5.1.0"
